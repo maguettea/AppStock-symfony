@@ -1,0 +1,47 @@
+{% extends 'accueil.html.twig' %}
+
+{% block title %}Gestion des Utilisateurs{% endblock %}
+{% block titleh1 %}Gestion des Utilisateurs{% endblock %}
+{% block Item %}Utilisateurs{% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="container col-md-6">
+        <div class="card">
+            <div class="card-header text-center bg-primary text-white">Liste des Utilisateurs</div>
+            <div class="card-body">
+                <table class="table table-striped table-bordered">
+                    <thead class="thead-dark text-center text-white">
+                    <tr>
+                        <th scope="col">Identifiant</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Nom</th>
+                        <th scope="col">Prenom</th>
+                        
+                    </tr>
+                    </thead>
+                    {% for u in users %}
+                    <tr>
+                        <th scope="row">{{ u.id }}</th>
+                       <td>{{ u.email }}</td>
+                         <td>{{ u.nom }}</td>
+                         <td>{{ u.prenom }}</td>
+                         
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+            <div class="card-footer">LICENCEGENIELOGICIEL</div>
+        </div>
+    </div>
+    <div class="container col-md-6">    
+        <div class="card">
+            <div class="card-header text-center bg-primary text-white">Formulaire de Gestion des Utilisateurs</div>
+            <div class="card-body">
+                {{ form(form) }}
+            </div>
+            <div class="card-footer">LICENCEGENIELOGICIEL</div>
+        </div>
+    </div>
+</div>
+{% endblock %}
